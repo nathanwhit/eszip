@@ -1792,9 +1792,10 @@ async fn read_npm_section<R: futures::io::AsyncRead + Unpin>(
       dist: Default::default(),
       dependencies,
       optional_dependencies: Default::default(),
-      bin: None,
-      scripts: Default::default(),
-      deprecated: Default::default(),
+      extra: Default::default(),
+      is_deprecated: false,
+      has_bin: false,
+      has_scripts: false,
     });
   }
   let mut root_packages = HashMap::with_capacity(npm_specifiers.len());
@@ -3926,9 +3927,10 @@ mod tests {
       system: Default::default(),
       dist: Default::default(),
       optional_dependencies: Default::default(),
-      bin: None,
-      scripts: Default::default(),
-      deprecated: Default::default(),
+      extra: Default::default(),
+      is_deprecated: false,
+      has_bin: false,
+      has_scripts: false,
     }
   }
 
